@@ -1,0 +1,40 @@
+GET http://localhost:3002/blogPosts
+
+
+
+###
+GET http://localhost:3002/blogPosts/67c630fcbf5be34a7ff7123c
+
+
+
+###
+POST http://localhost:3002/blogPosts
+Content-Type: application/json
+
+{
+    "category" : "Cibo",
+    "title" : "La pizza pazza",
+    "cover" : "jadhjkdh",
+    "readTime" : {
+        "value" : 25,
+        "unit" : "minuti"
+    },
+    "author" : "67c63044bb6306060397f2bf",
+    "content" : "C'era una volta una pizza molto pazza. Tutti la volevano conoscere per poterla assaggiare."
+}
+
+
+
+###
+PUT http://localhost:3002/blogPosts/67c63101bf5be34a7ff7123e
+Content-Type: application/json
+
+{
+    "title" : "La mucca pazza",
+    "content": "C'era una volta una mucca molto pazza. Tutti la volevano conoscere per poterla osservare."
+}
+
+
+
+###
+DELETE http://localhost:3002/blogPosts/67c63297809dc01a4f4bfb33

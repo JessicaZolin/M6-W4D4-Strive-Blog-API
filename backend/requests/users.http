@@ -1,0 +1,46 @@
+// @USERS_URL = http://localhost:3002/users     ----->      you can use this string instead of writing every time the entire URL an add only the specific field for the request
+
+GET http://localhost:3002/users
+
+
+
+###
+GET http://localhost:3002/users/67c62695096841f642e1e674
+
+
+
+###
+POST http://localhost:3002/users/register
+Content-Type: application/json
+
+{
+    "firstName" : "Pina",
+    "lastName" : "Pini",
+    "email" : "Pina.pini@gmail.com",
+    "password" : 5678
+}
+
+
+
+###
+POST http://localhost:3002/users/login
+Content-Type: application/json
+
+{
+    "email" : "Pina.pini@gmail.com",
+    "password" : "5678"
+}
+
+
+
+###
+PUT http://localhost:3002/users/67c6292ca80dbaddd6b04c12
+Content-Type: application/json
+
+{
+    "firstName" : "Pinetta"
+}
+
+###
+DELETE http://localhost:3002/users/67c626bd096841f642e1e677
+

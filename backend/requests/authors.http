@@ -1,0 +1,34 @@
+GET http://localhost:3002/authors
+
+
+
+###
+GET http://localhost:3002/authors/67c63044bb6306060397f2bf
+
+
+
+###
+POST http://localhost:3002/authors
+Content-Type: application/json
+
+{
+    "firstName" : "Marco",
+    "lastName" : "Marchetto",
+    "email" : "marco.marchetto@gmail.com"
+}
+
+
+
+###
+PUT http://localhost:3002/authors/67c63053bb6306060397f2c1
+Content-Type: application/json
+
+{
+    "firstName" : "Guida",
+    "email" : "guida.lavespa@gmail.com"
+}
+
+
+
+###
+DELETE http://localhost:3002/authors/67c63065bb6306060397f2c5

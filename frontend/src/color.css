@@ -1,0 +1,126 @@
+.container-main {
+  margin-top: 100px !important;
+}
+
+/* bg-navbar e footer*/
+.background-546a76 {
+  background-color: #546a76 !important;
+  font-size: 13pt !important;
+}
+
+/* badge category*/
+.background-badge-category {
+  background-color: #546a76 !important;
+}
+
+/* dropdown menu user navbar & bg card */
+.dropdown-menu,
+.background-card {
+  background-color: #a9c7d1 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #546a76 !important;
+  color: white !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: white !important;
+}
+
+/* ---------------------------------------------------- FORM INPUT & BUTTON ---------------------------------------------------- */
+
+.form-control {
+  border: solid 1px #546a76 !important;
+}
+
+/* button: publish comment & edit post & create post & update & login & register & back to post */
+.color-button-546a76 {
+  background-color: #546a76 !important;
+  border: none !important;
+
+  &:hover {
+    border: solid 2px white !important;
+  }
+}
+
+/* button: search navbar */
+.color-button-a9c7d1 {
+  background-color: #a9c7d1 !important;
+  color: black !important;
+  border: none !important;
+
+  &:hover {
+    background-color: #546a76 !important;
+    border: solid 2px white !important;
+  }
+}
+/* google button */
+.color-button-google {
+  background-color: none !important;
+  border: solid 2px #546a76 !important;
+
+  &:hover {
+    background-color: #546a76 !important;
+    border: solid 2px white !important;
+  }
+}
+
+/* delete button */
+.color-button-delete {
+  background-color: #546a76 !important;
+  border: none !important;
+
+  &:hover {
+    border: solid 2px red !important;
+  }
+}
+
+.color-button-546a76-bg-white {
+  background-color: #546a76 !important;
+  border: none !important;
+
+  &:hover {
+    border: solid 2px black !important;
+  }
+}
+
+/* pagination home */
+.pagination {
+  --bs-pagination-color: #546a76 !important;
+  --bs-pagination-border-color: #a9c7d1 !important;
+  --bs-pagination-active-bg: #546a76 !important;
+  --bs-pagination-active-border-color: #546a76 !important;
+  --bs-pagination-disabled-border-color: #a9c7d1 !important;
+  --bs-pagination-hover-border-color: #546a76 !important;
+  --bs-pagination-hover-color: #a9c7d1 !important;
+}
+
+.title {
+  color: white !important;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 2px #546a76;
+}
+
+.title h4 {
+  color: white !important;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 2px #546a76;
+}
+
+.title-my-post {
+  color: #546a76 !important;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 2px #546a76;
+}
+
+/* selected color dashboard */
+.selected:hover {
+  background-color: #546a76 !important;
+  color: white !important;
+  border: solid 2px white !important;
+}
