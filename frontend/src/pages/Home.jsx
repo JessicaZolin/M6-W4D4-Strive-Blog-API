@@ -37,13 +37,13 @@ const Home = () => {
     }, [currentPage]);
 
     // ---------------------------- filter posts based on search query ----------------------------
-    const filteredPosts = posts.filter(post => 
-        post.title.toLowerCase().includes(search.toLowerCase()) ||
-        post.content.toLowerCase().includes(search.toLowerCase()) ||
-        post.category.toLowerCase().includes(search.toLowerCase()) ||
-        post.author.firstName.toLowerCase().includes(search.toLowerCase()) ||
-        post.author.lastName.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredPosts = posts?.filter(post => 
+        post?.title?.toLowerCase().includes(search.toLowerCase() || '') ||
+        post?.content?.toLowerCase().includes(search.toLowerCase() || '') ||
+        post?.category?.toLowerCase().includes(search.toLowerCase() || '') ||
+        post?.author?.firstName?.toLowerCase().includes(search.toLowerCase() || '') ||
+        post?.author?.lastName?.toLowerCase().includes(search.toLowerCase() || '')
+    ) || [];
 
 
     // ---------------------------- render the posts ----------------------------
