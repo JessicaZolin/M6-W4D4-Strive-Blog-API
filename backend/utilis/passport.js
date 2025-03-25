@@ -52,7 +52,9 @@ passport.use(
     new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3002/authors/google/callback",
+    callbackURL: 
+    process.env.BACKEND_URL + process.env.GOOGLE_CALLBACK_PATH  // must be registered in the Google developer console
+    /* "http://localhost:3002/authors/google/callback" */,
   },
   async (accessToken, refreshToken, profile, done) => {
    try {
