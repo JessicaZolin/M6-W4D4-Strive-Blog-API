@@ -38,13 +38,17 @@ const NavBar = () => {
   };
 
   // ---------------------------- Capitalize the first letter of the user's name and last name and save as a variable
-  const userFirstName =
-    user?.firstName.charAt(0).toUpperCase() + user?.firstName.slice(1);
-  const userLastName =
-    user?.lastName.charAt(0).toUpperCase() + user?.lastName.slice(1);
+  const userFirstName = user?.firstName
+    ? user?.firstName.charAt(0).toUpperCase() + user?.firstName.slice(1)
+    : "";
+  const userLastName = user?.lastName
+    ? user?.lastName.charAt(0).toUpperCase() + user?.lastName.slice(1)
+    : "";
 
   // ---------------------------- Profile default image
-  const defaultProfileImage = `https://ui-avatars.com/api/?background=a9c7d1&color=00000&name=${userFirstName}+${userLastName}`;
+  const defaultProfileImage = user
+    ? `https://ui-avatars.com/api/?background=a9c7d1&color=00000&name=${userFirstName}+${userLastName}`
+    : "";
 
   // ---------------------------- Function to toggle the expanded state of the navbar ----------------------------
   const handleNavigation = () => {
@@ -71,11 +75,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link
-              as={Link}
-              to="/"
-              onClick={handleNavigation}
-            >
+            <Nav.Link as={Link} to="/" onClick={handleNavigation}>
               Home
             </Nav.Link>
           </Nav>
