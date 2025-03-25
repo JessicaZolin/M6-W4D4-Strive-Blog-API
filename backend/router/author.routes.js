@@ -61,7 +61,7 @@ authorRouter.post(
         lastName,
         email,
         password: hashedPassword,
-        profileImage: req.file.path,
+        profileImage: req.file ? req.file.path : "",  // check if req.file exists and set profileImage accordingly
       });
 
       // Save the new user
@@ -83,6 +83,7 @@ authorRouter.post(
       const token = generateToken(newUser);
       return res.status(200).send({ user: userToSend, token });
     } catch (error) {
+      console.log(error, error.message);
       return res.status(500).send({ error: error.message });
     }
   }
