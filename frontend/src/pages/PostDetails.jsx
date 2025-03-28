@@ -143,7 +143,7 @@ const PostDetails = () => {
                       ? userFirstName + " " + userLastName
                       : "Unknown"}
                   </small>
-                  {post.author && (
+                  {post.author && post.author.profileImage && (
                     <img
                       src={post.author?.profileImage}
                       className="rounded-circle"

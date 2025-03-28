@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
                 </div>
                 <Card.Title style={{height:"20%"}}>{post.title}</Card.Title>
                 <Card.Text style={{height:"40%"}}>{post.content.substring(0, 160)}...</Card.Text>
-                <Badge bg="dark" className='mb-3 background-badge-category'>{post.author ? userFirstName + ' ' + userLastName : 'Unknown'} {post.author && post.author.profileImage && <img src={post.author?.profileImage} className="rounded-circle" alt="profile image" style={{ width: "20px", height: "20px", margin: "5px", objectFit: "cover" }} />}</Badge>
+                <Badge bg="dark" className='mb-3 background-badge-category d-flex align-items-center justify-content-center' style={{height:"38px"}}>{post.author ? userFirstName + ' ' + userLastName : 'Unknown'} {post.author && post.author.profileImage && <img src={post.author?.profileImage} className="rounded-circle" alt="profile image" style={{ width: "20px", height: "20px", margin: "5px", objectFit: "cover" }} />}</Badge>
             </Card.Body>
         </Card>
     );
