@@ -15,6 +15,7 @@ import Profile from './pages/Profile';
 import EditPost from './pages/EditPost';
 import Dashboard from './pages/Dashboard';
 import Footer from './components/Footer';
+import TiptapEditor from './components/TipTapEditor';
 
 function App() {
 

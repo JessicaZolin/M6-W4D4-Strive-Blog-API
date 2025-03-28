@@ -3,6 +3,9 @@ import { Form, Button, Alert, ListGroup } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import "../color.css";
+import TipTapEditor from "./TipTapEditor";
+import parser from "html-react-parser";
+import "./TipTapEditorStyle.css";
 
 const Comments = ({ id }) => {
   // Inizializza lo stato per i commenti, il nuovo commento e l'errore, utilizzo il context per ottenere l'utente attuale
@@ -10,7 +13,6 @@ const Comments = ({ id }) => {
   const [newComment, setNewComment] = useState("");
   const [error, setError] = useState("");
   const { user } = useAuth();
-  
 
   // ---------------------------- Function to obtain comments ----------------------------
   const fetchComments = async () => {
@@ -45,6 +47,8 @@ const Comments = ({ id }) => {
       );
       // Aggiungo il nuovo commento alla lista dei commenti
       setComments([response.data, ...comments]);
+      // Resetto il nuovo commento dal form e l'editor
+      // Reset editor content
       setNewComment("");
       setError("");
     } catch (error) {
@@ -75,7 +79,13 @@ const Comments = ({ id }) => {
 
       {user && (
         <Form onSubmit={handleSubmit} className="mb-4">
-          <Form.Group className="mb-3">
+          <TipTapEditor
+            onUpdate={({ editor }) => {
+              let content = editor.getHTML();
+              setNewComment(content);
+            }}
+          />
+          {/*  <Form.Group className="mb-3">
             <Form.Control
               as="textarea"
               rows={3}
@@ -84,8 +94,12 @@ const Comments = ({ id }) => {
               placeholder="Write a comment..."
               required
             />
-          </Form.Group>
-          <Button type="submit" className="color-button-546a76">
+          </Form.Group> */}
+          <Button
+            type="submit"
+            className="color-button-546a76"
+            disabled={!newComment?.trim()}
+          >
             Publish comment
           </Button>
         </Form>
@@ -112,7 +126,7 @@ const Comments = ({ id }) => {
                 {comment.author.lastName.charAt(0).toUpperCase() +
                   comment.author.lastName.slice(1)}
               </div>
-              {comment.content}
+              {parser(comment.content)}
               <div className="text-muted mt-2" style={{ fontSize: "0.8rem" }}>
                 {new Date(comment.createdAt).toLocaleString()}
               </div>
