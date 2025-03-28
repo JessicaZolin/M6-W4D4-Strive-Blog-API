@@ -9,7 +9,7 @@ const commentRouter = express.Router();
 commentRouter.get("/:id/comments", async (req, res, next) => {
     try {
         const comments = await Comment.find({blogPost: req.params.id})
-        .populate("author", "firstName lastName")
+        .populate("author", "firstName lastName profileImage")
         .sort({ createdAt: -1 });
         res.send(comments);
     } catch (error) {
@@ -25,7 +25,7 @@ commentRouter.post("/:id", async (req, res, next) => {
         const newComment = new Comment({ content, author, blogPost });
         const savedComment = await newComment.save();
         const populatedComment = await Comment.findById(savedComment._id)
-            .populate("author", "firstName lastName");
+            .populate("author", "firstName lastName profileImage");
         res.status(201).send(populatedComment);
     } catch (error) {
         res.status(500).send({ error: error.message });

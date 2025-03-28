@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 function Dashboard() {
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <>
       <Button
@@ -19,7 +21,7 @@ function Dashboard() {
           viewBox="0 0 16 16"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
           />
         </svg>
@@ -27,6 +29,12 @@ function Dashboard() {
       </Button>
 
       <Container className="mt-5">
+        <Row className="mb-3">
+          <h4>Hello, {user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} {user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)} !</h4>
+          {user.profileImage && <img src={user.profileImage} alt="Profile" className="profile-image" style={{ width: "100px", height: "100px", objectFit: "cover", borderRadius: "30%"}} />}
+          <p className="mt-3">Here you can manage your blog posts and profile.</p>
+          
+        </Row>
         <Row>
           <Card
             className="shadow mb-3 background-card selected"

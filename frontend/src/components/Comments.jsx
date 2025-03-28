@@ -48,7 +48,6 @@ const Comments = ({ id }) => {
       // Aggiungo il nuovo commento alla lista dei commenti
       setComments([response.data, ...comments]);
       // Resetto il nuovo commento dal form e l'editor
-      // Reset editor content
       setNewComment("");
       setError("");
     } catch (error) {
@@ -81,7 +80,7 @@ const Comments = ({ id }) => {
         <Form onSubmit={handleSubmit} className="mb-4">
           <TipTapEditor
             onUpdate={({ editor }) => {
-              let content = editor.getHTML();
+              const content = editor.getHTML();
               setNewComment(content);
             }}
           />
@@ -120,11 +119,24 @@ const Comments = ({ id }) => {
             className="d-flex justify-content-between align-items-center bg-transparent shadow-sm"
           >
             <div className="me-auto">
-              <div className="fw-bold">
+              <div className="fw-bold d-flex align-items-center">
                 {comment.author.firstName.charAt(0).toUpperCase() +
                   comment.author.firstName.slice(1)}{" "}
                 {comment.author.lastName.charAt(0).toUpperCase() +
                   comment.author.lastName.slice(1)}
+                {comment.author.profileImage && (
+                  <img
+                    src={comment.author?.profileImage}
+                    className="rounded-circle"
+                    alt="profile image"
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      margin: "5px",
+                      objectFit: "cover",
+                    }}
+                  />
+                )}
               </div>
               {parser(comment.content)}
               <div className="text-muted mt-2" style={{ fontSize: "0.8rem" }}>

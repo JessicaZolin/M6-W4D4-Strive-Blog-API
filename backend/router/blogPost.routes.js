@@ -21,7 +21,7 @@ blogPostRouter.get("/", async (req, res, next) => {
 
     try {
         const posts = await BlogPost.find(filter)
-            .populate("author", "firstName lastName")
+            .populate("author", "firstName lastName profileImage")
             .sort({ createdAt: -1 })                                  // sort by createdAt in descending order, so the most recent posts are first
             .skip(skip)
             .limit(postPerPage);
@@ -49,7 +49,7 @@ blogPostRouter.get("/", async (req, res, next) => {
 blogPostRouter.get("/:id", async (req, res, next) => {
     try {
         const singleBlogPost = await BlogPost.findById(req.params.id)
-            .populate("author", "firstName lastName");
+            .populate("author", "firstName lastName profileImage");
 
         if (!singleBlogPost) {
             return res.status(404).send({ error: "BlogPost not found" });
@@ -94,7 +94,7 @@ blogPostRouter.post("/", upload.single("cover"), async (req, res, next) => {
         const savedBlogPost = await newBlogPost.save();
 
         const populatedBlogPost = await BlogPost.findById(savedBlogPost._id)
-            .populate("author", "firstName lastName");
+            .populate("author", "firstName lastName profileImage");
 
         res.status(201).send(populatedBlogPost);
     } catch (error) {
